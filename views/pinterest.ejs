@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pinterest</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/stylesheet/pinterest.css"> <!-- Link to external CSS file -->
+</head>
+<body class="bg-gray-100">
+    <!-- Navigation Bar -->
+    <nav class="bg-white shadow-md py-4 rounded-b-lg">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <div class="flex items-center space-x-6">
+                <!-- Larger Image instead of text -->
+                <a href="#">
+                    <img src="/images/pintreat-icon.png" alt="Pinterest" class="w-6 md:w-7 rounded-full"> <!-- Adjust width as needed -->
+                </a>
+                <a href="/pinterest" class="nav-link rounded-full px-4 py-2">Home</a>
+
+                <% if(userDetail !== null){ %>
+                    <h1>hi, <%= userDetail.firstName %> <%= userDetail.lastName %> </h1>
+                <% }else{ %>
+                    <h1>hey, Thanx for visiting,</h1>
+                <% } %>
+            </div>
+            <div class="flex items-center space-x-4">
+                <!-- Search Bar -->
+                <div class="flex items-center bg-gray-100 rounded-full px-3 py-2">
+                    <input type="text" placeholder="Search" class="bg-gray-100 focus:outline-none text-gray-600 w-32 md:w-64 rounded-full">
+                    <a href="#" class="text-gray-600 hover:text-gray-800 ml-2 rounded-full">
+                        <img src="/images/search-icon.webp" alt="Search" class="w-5 h-5 rounded-full">
+                    </a>
+                </div>
+                <a href="/profile" class="text-gray-600 hover:text-gray-800 rounded-full">
+                    <img src="/images/default-profile-icon.png" alt="Profile" class="w-8 h-8 rounded-full">
+                </a>
+                <!-- Logout Button -->
+                <a href="/logout" class="bg-red-500 text-white hover:bg-red-600 rounded-full px-4 py-2 text-sm">Logout</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Masonry Grid -->
+    <div class="container mx-auto px-6 mt-6">
+        <div class="masonry"> 
+
+            <% obj.forEach((data) =>{ %>
+                 <!-- Example images with routes -->
+                <div class="masonry-item rounded-lg overflow-hidden">
+                <a href="/#">
+                    <img src=" <%= data.urls.raw %>" alt="Image 1" class="rounded-lg">
+                </a>
+                </div>
+
+            <% }) %>
+           
+             
+        </div>
+    </div>
+</body>
+</html>

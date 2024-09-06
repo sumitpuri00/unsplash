@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/stylesheet/profile.css"> <!-- Link to external CSS file if needed -->
+</head>
+<body class="bg-gray-100">
+
+    <!-- Navigation Bar -->
+    <nav class="bg-white shadow-md py-4 rounded-b-lg">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <div class="flex items-center space-x-6">
+                <!-- Larger Image instead of text -->
+                <a href="#">
+                    <img src="/images/pintreat-icon.png" alt="Pinterest" class="w-6 md:w-7 rounded-full"> <!-- Adjust width as needed -->
+                </a>
+                <!-- <a href="pinterest" class="nav-link rounded-full px-4 py-2">Home</a> -->
+                <div >
+                    <button onclick="history.back()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                        Back
+                    </button>
+                </div>
+            </div>
+            <div class="flex items-center space-x-4">
+                <!-- Search Bar -->
+                <div class="flex items-center bg-gray-100 rounded-full px-3 py-2">
+                    <input type="text" placeholder="Search" class="bg-gray-100 focus:outline-none text-gray-600 w-32 md:w-64 rounded-full">
+                    <a href="#" class="text-gray-600 hover:text-gray-800 ml-2 rounded-full">
+                        <img src="/images/search-icon.webp" alt="Search" class="w-5 h-5 rounded-full">
+                    </a>
+                </div>
+                <a href="#" class="text-gray-600 hover:text-gray-800 rounded-full">
+                    <img src="/images/default-profile-icon.png" alt="Profile" class="w-8 h-8 rounded-full">
+                </a>
+                <!-- Logout Button -->
+                <a href="/log-out" class="bg-red-500 text-white hover:bg-red-600 rounded-full px-4 py-2 text-sm">Logout</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Profile Section -->
+    <div class="container mx-auto px-6 mt-6 max-w-lg">
+        <div class="bg-white shadow-md rounded-lg p-6">
+            <!-- Profile Picture -->
+            <div class="flex items-center space-x-4">
+                <img src="/images/default-profile-icon.png" alt="Profile Picture" class="w-24 h-24 rounded-full border-2 border-gray-300">
+                <div>
+                    <h1 class="text-2xl font-semibold"> <%= userObj.firstName %> <%= userObj.lastName %> </h1>
+                    <p class="text-gray-600"><%= userObj.email %> </p>
+                </div>
+            </div>
+            <!-- Bio Section -->
+            <div class="mt-6">
+                <h2 class="text-lg font-semibold">Bio</h2>
+                <p class="text-gray-700 mt-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum.</p>
+            </div>
+            <!-- Edit Button -->
+            <div class="mt-6 text-right">
+                <a href="/edit-profile" class="bg-blue-500 text-white hover:bg-blue-600 rounded-full px-4 py-2 text-sm">Edit Profile</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

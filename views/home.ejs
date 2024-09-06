@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+    <!-- Navigation Bar -->
+    <nav class="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-6">
+                <a href="#" class="text-white text-2xl font-bold">MyWebsite</a>
+                <a href="#" class="text-white hover:underline">Home</a>
+                <!-- Add the username here if the user is logged in -->
+               
+            </div>
+            <ul class="flex space-x-6">
+                <li><a href="#" class="text-white hover:underline">About</a></li>
+                <li><a href="#" class="text-white hover:underline">Services</a></li>
+                <li><a href="/log-out"  class="text-white hover:underline">Log out</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container mx-auto mt-12 p-6">
+        <h1 class="text-4xl font-bold text-gray-800 mb-6">Welcome to MyWebsite</h1>
+        <p class="text-lg text-gray-700 leading-relaxed">
+            This is the homepage of MyWebsite. We offer a range of services to help you achieve your goals. 
+            Explore our website to learn more about what we do and how we can assist you.
+        </p>
+        <p class="mt-4 text-lg text-gray-700 leading-relaxed">
+            Our team is dedicated to providing the best possible service. Whether you're looking for advice, 
+            solutions, or just some inspiration, we're here to help. Get in touch with us to find out more!
+        </p>
+
+        <% if(userDetail !== null){ %>
+            <!-- Profile Section -->
+            <section class="mt-12 p-6 bg-white rounded-lg shadow-md">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">Profile</h2>
+                <div class="flex items-center">
+                    <img src="https://i.pinimg.com/originals/d7/a1/be/d7a1be40f9b75658f4dedfa94bb45781.jpg" alt="User Profile" class="w-16 h-16 rounded-full">
+                    <div class="ml-4">
+                        <h3 class="text-xl font-semibold text-gray-800"><%=userDetail.firstName%> <%=userDetail.lastName%></h3>
+                        <p class="text-gray-600"><%= userDetail.email %></p>
+                    </div>
+                </div>
+            </section>
+        <% } %>
+    </main>
+</body>
+</html>

@@ -1,0 +1,21 @@
+/* Custom styles for the profile page if needed */
+.profile-picture {
+    width: 6rem;
+    height: 6rem;
+    border-radius: 50%;
+    border: 2px solid #e2e8f0; /* Light gray border */
+}
+
+.edit-button {
+    background-color: #3182ce; /* Tailwind blue-500 */
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 9999px; /* Fully rounded corners */
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.edit-button:hover {
+    background-color: #2b6cb0; /* Tailwind blue-600 */
+}
