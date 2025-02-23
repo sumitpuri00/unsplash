@@ -1,5 +1,6 @@
 const express=require('express');
 const app =express();
+require('dotenv').config();
 
 
 const userModel=require('./models/user');
@@ -170,11 +171,11 @@ app.get('/pinterest-guest',fetchUnsplash,(req,res) =>{
 
 const { createApi } = require('unsplash-js');
 const fetch = require('node-fetch'); // Required for environments that don't have a built-in fetch
- 
-
 
 const unsplash = createApi({
-    accessKey: "ernLbK3_v2vI6JimWygyHIXsXkGP0OjDy5nojtTV_q8"
+    // accessKey: [process.env.ACCESS_KEY]
+    // OR
+    accessKey:process.env.ACCESS_KEY 
 });
 
 async function fetchUnsplash(req,res,next) {
@@ -203,6 +204,7 @@ app.get('/log-out',(req,res)=> {
 
 
 const mongoose = require('mongoose'); 
+const { log } = require('console');
 async function dropAllCollections() {
     try {
         // Connect to the MongoDB database
