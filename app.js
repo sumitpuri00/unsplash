@@ -208,7 +208,7 @@ const { log } = require('console');
 async function dropAllCollections() {
     try {
         // Connect to the MongoDB database
-        await mongoose.connect('mongodb://localhost:27017/JWTdatabase', {
+        await mongoose.connect(`${process.env.MONGODB_URL/unsplashUser}`, {
             useNewUrlParser: true,
             useUnifiedTopology: true,
         });
@@ -259,9 +259,11 @@ function print(req,res,next){
     return res.send(`${req.n}`)
 }
 
-const port = process.env.PORT || 3000;
-app.listen(port, () => {
-  console.log(`Server running on port ${port}`);
-});
-
+if (!process.env.VERCEL) {
+    // This means we’re NOT running on Vercel
+    const port = process.env.PORT || 3000;
+    app.listen(port, () => {
+      console.log(`Local server is listening on port ${port}`);
+    });
+}
 
