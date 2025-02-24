@@ -292,13 +292,16 @@ const JWT_SECRET = process.env.JWT_SECRET || 'some-secret-string';
 const MONGODB_URL = process.env.MONGODB_URL;
 
 // MongoDB Connection
-mongoose.connect(MONGODB_URL, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-})
-.then(() => console.log('Connected to MongoDB'))
-.catch(err => console.error('MongoDB connection error:', err));
-
+const connectDB=async()=>{ 
+    await mongoose.connect(`${process.env.MONGODB_URL}`, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+    })
+    .then(() => console.log('Connected to MongoDB'))
+    .catch(err => console.error('MongoDB connection error:', err));
+    
+}
+connectDB();
 // Unsplash Setup
 const unsplash = createApi({
     accessKey: process.env.ACCESS_KEY,

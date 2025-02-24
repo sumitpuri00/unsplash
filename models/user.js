@@ -1,13 +1,13 @@
 const mongoose=require('mongoose');
-async ()=>{
-    try {
-        await mongoose.connect(`${process.env.MONGODB_URL/unsplashUser}`);
-    } catch (error) {
-        console.log(error.message);
+// async ()=>{
+//     try {
+//         await mongoose.connect(`${process.env.MONGODB_URL/unsplashUser}`);
+//     } catch (error) {
+//         console.log(`user.js file erroe-----${error.message}`);
         
-    }
+//     }
     
-}
+// }
 
 
 let userModel=mongoose.Schema({
