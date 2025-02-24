@@ -293,10 +293,7 @@ const MONGODB_URL = process.env.MONGODB_URL;
 
 // MongoDB Connection
 const connectDB=async()=>{ 
-    await mongoose.connect(`${process.env.MONGODB_URL}`, {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-    })
+    await mongoose.connect(`${process.env.MONGODB_URL}`)
     .then(() => console.log('Connected to MongoDB'))
     .catch(err => console.error('MongoDB connection error:', err));
     
