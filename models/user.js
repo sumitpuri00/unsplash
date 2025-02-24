@@ -3,7 +3,7 @@ async ()=>{
     try {
         await mongoose.connect(`${process.env.MONGODB_URL/unsplashUser}`);
     } catch (error) {
-        console.log(error);
+        console.log(error.message);
         
     }
     
