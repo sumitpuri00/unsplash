@@ -8,7 +8,7 @@
 
 // based on the my file structure.
 // serverless.js
-const app = require('./app');
+const app = require('./app.js');
 
 // Simply export the app for Vercel
 module.exports = app;
