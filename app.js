@@ -308,7 +308,7 @@ const unsplash = createApi({
 // Middleware Functions
 async function fetchUnsplash(req, res, next) {
     try {
-        const response = await unsplash.photos.list({ page: 1, perPage: 50 });
+        const response = await unsplash.photos.list({ page: 4, perPage: 80 });
         req.unsplashObjArray = response.response.results;
         console.log('Images fetched successfully');
         next();
