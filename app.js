@@ -293,7 +293,7 @@ const MONGODB_URL = process.env.MONGODB_URL;
 
 // MongoDB Connection
 const connectDB=async()=>{ 
-    await mongoose.connect(`${process.env.MONGODB_URL}`)
+    await mongoose.connect(`${process.env.MONGODB_URL}/pintrestDB?retryWrites=true&w=majority&appName=Cluster0`)
     .then(() => console.log('Connected to MongoDB'))
     .catch(err => console.error('MongoDB connection error:', err));
     
@@ -431,7 +431,7 @@ app.use((err, req, res, next) => {
 
 // Server setup
 if (process.env.NODE_ENV !== 'production') {
-    const port = process.env.PORT || 3000;
+    const port = process.env.PORT || 3001;
     app.listen(port, () => {
         console.log(`Development server running on port ${port}`);
     });
